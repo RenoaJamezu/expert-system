@@ -73,7 +73,7 @@ export const conversationFlow = {
     message: "Do you feel a pulsating or vibrating sensation in the brake pedal when braking, especially at higher speeds?",
     options: [
       { label: "Yes", next: "solutionBrakeVibration" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionBrakeVibration: {
@@ -86,7 +86,7 @@ export const conversationFlow = {
     message: "Do you notice any visible damage to the brake components (e.g., thin brake pads, scored rotors)?",
     options: [
       { label: "Yes", next: "solutionBrakeNoise" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -109,7 +109,7 @@ export const conversationFlow = {
     message: "Do you notice puddles of green, orange, or pink liquid under your car or a sweet, syrupy smell inside the cabin?",
     options: [
       { label: "Yes", next: "solutionCoolantLeak" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionCoolantLeak: {
@@ -122,7 +122,7 @@ export const conversationFlow = {
     message: "Do you notice any visible damage to the radiator, hoses, or water pump?",
     options: [
       { label: "Yes", next: "solutionEngineOverheating" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -145,7 +145,7 @@ export const conversationFlow = {
     message: "Are your headlights dimming, or are electrical components like the radio or power windows malfunctioning? This may indicate alternator failure.",
     options: [
       { label: "Yes", next: "solutionAlternatorFailure" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -154,7 +154,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of battery issues, such as corrosion on the terminals or a swollen battery case?",
     options: [
       { label: "Yes", next: "solutionDeadBattery" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -177,7 +177,7 @@ export const conversationFlow = {
     message: "Is your engine making knocking or ticking noises, or does it feel like it’s losing power? These may indicate low oil pressure.",
     options: [
       { label: "Yes", next: "solutionLowOilPressure" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionLowOilPressure: {
@@ -190,7 +190,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of oil issues, such as low oil levels, dirty oil, or leaks around the engine bay?",
     options: [
       { label: "Yes", next: "solutionOilLeak" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -213,7 +213,7 @@ export const conversationFlow = {
     message: "Are you noticing reduced mileage, hesitation during acceleration, or rough idling? These may indicate fuel system problems.",
     options: [
       { label: "Yes", next: "solutionFuelSystemIssues" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -222,7 +222,7 @@ export const conversationFlow = {
     message: "Do you have access to an OBD-II scanner to retrieve diagnostic trouble codes (DTCs)?",
     options: [
       { label: "Yes", next: "solutionCheckEngineLight" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -245,7 +245,7 @@ export const conversationFlow = {
     message: "Is there a burning smell coming from your car while driving? This may indicate that your transmission is overheating.",
     options: [
       { label: "Yes", next: "solutionTransmissionOverheating" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionTransmissionOverheating: {
@@ -258,7 +258,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of transmission issues, such as low or dirty transmission fluid?",
     options: [
       { label: "Yes", next: "solutionTransmissionProblems" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -281,7 +281,7 @@ export const conversationFlow = {
     message: "Do you hear clunking or rattling noises when going over bumps? These sounds may indicate worn suspension components like bushings, ball joints, or struts.",
     options: [
       { label: "Yes", next: "solutionSuspensionNoise" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionSuspensionNoise: {
@@ -294,7 +294,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of suspension issues, such as uneven tire wear or leaking shocks/struts?",
     options: [
       { label: "Yes", next: "solutionSuspensionIssues" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -317,7 +317,7 @@ export const conversationFlow = {
     message: "Is your AC system blowing weak airflow? This may indicate a clogged cabin air filter or a failing blower motor.",
     options: [
       { label: "Yes", next: "solutionWeakACAirflow" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionWeakACAirflow: {
@@ -330,7 +330,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of AC issues, such as refrigerant leaks (oily residue) or unusual smells?",
     options: [
       { label: "Yes", next: "solutionAirConditioningFailure" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -353,7 +353,7 @@ export const conversationFlow = {
     message: "Does your car struggle to start after being turned off? This may indicate a weak or failing battery caused by an alternator issue.",
     options: [
       { label: "Yes", next: "solutionWeakBattery" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionWeakBattery: {
@@ -366,7 +366,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of alternator issues, such as a warning light on the dashboard or unusual noises from the engine bay?",
     options: [
       { label: "Yes", next: "solutionAlternatorFailure" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -389,7 +389,7 @@ export const conversationFlow = {
     message: "Do you notice a strong smell of gasoline near your car? This may indicate a fuel leak in the system.",
     options: [
       { label: "Yes", next: "solutionFuelLeak" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionFuelLeak: {
@@ -402,7 +402,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of fuel system issues, such as leaks under the car or a check engine light?",
     options: [
       { label: "Yes", next: "solutionFuelSystemIssues" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -425,7 +425,7 @@ export const conversationFlow = {
     message: "Is your car vibrating excessively at idle or while driving? This may indicate loose or damaged exhaust components.",
     options: [
       { label: "Yes", next: "solutionExhaustVibration" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
   solutionExhaustVibration: {
@@ -438,7 +438,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of exhaust issues, such as rust, holes, or loose components under the car?",
     options: [
       { label: "Yes", next: "solutionExhaustSystemProblems" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -447,7 +447,7 @@ export const conversationFlow = {
     message: "Does your steering wheel vibrate at high speeds? This may indicate imbalanced or misaligned wheels.",
     options: [
       { label: "Yes", next: "solutionSteeringWheelVibration" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "steeringWheelInspectionFollowUp" }
     ]
   },
@@ -461,7 +461,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of tire wear, such as uneven tread or bulges, or hear unusual noises while driving?",
     options: [
       { label: "Yes", next: "solutionSteeringWheelVibration" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -470,7 +470,7 @@ export const conversationFlow = {
     message: "Do you find it difficult to turn the steering wheel or hear a whining noise when turning? These symptoms often indicate low power steering fluid or a failing power steering pump.",
     options: [
       { label: "Yes", next: "solutionPowerSteeringFailure" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "powerSteeringInspectionFollowUp" }
     ]
   },
@@ -484,7 +484,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of power steering issues, such as leaks under the car or low fluid levels in the reservoir?",
     options: [
       { label: "Yes", next: "solutionPowerSteeringFailure" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -493,7 +493,7 @@ export const conversationFlow = {
     message: "Are your headlights flickering or dimming intermittently? These symptoms often indicate loose wiring, a failing alternator, or electrical system issues.",
     options: [
       { label: "Yes", next: "solutionHeadlightFlickering" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "headlightInspectionFollowUp" }
     ]
   },
@@ -507,7 +507,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of headlight issues, such as loose wires, corrosion, or a weak battery?",
     options: [
       { label: "Yes", next: "solutionHeadlightFlickering" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -516,7 +516,7 @@ export const conversationFlow = {
     message: "Is your accelerator pedal stiff or does it stick? These symptoms often indicate a dirty throttle body or a worn accelerator cable.",
     options: [
       { label: "Yes", next: "solutionStickingAcceleratorPedal" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "acceleratorPedalInspectionFollowUp" }
     ]
   },
@@ -530,7 +530,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of issues, such as dirt around the throttle body or frayed cables near the pedal?",
     options: [
       { label: "Yes", next: "solutionStickingAcceleratorPedal" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -539,7 +539,7 @@ export const conversationFlow = {
     message: "Is your engine shaking or vibrating at idle? These symptoms often indicate a vacuum leak, dirty fuel injectors, or other engine-related issues.",
     options: [
       { label: "Yes", next: "solutionRoughIdle" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "roughIdleInspectionFollowUp" }
     ]
   },
@@ -553,7 +553,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of rough idle issues, such as hissing sounds (vacuum leak) or poor acceleration?",
     options: [
       { label: "Yes", next: "solutionRoughIdle" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -562,7 +562,7 @@ export const conversationFlow = {
     message: "Is your door lock not working properly (manual or electric)? This may indicate a faulty actuator, mechanical obstruction, or lack of lubrication.",
     options: [
       { label: "Yes", next: "solutionDoorLockMalfunction" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "doorLockInspectionFollowUp" }
     ]
   },
@@ -576,7 +576,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of door lock issues, such as difficulty turning the key, unusual noises, or sluggish operation?",
     options: [
       { label: "Yes", next: "solutionDoorLockMalfunction" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -585,7 +585,7 @@ export const conversationFlow = {
     message: "Are your windshield wipers leaving streaks or smearing water? These symptoms often indicate worn wiper blades or a dirty windshield.",
     options: [
       { label: "Yes", next: "solutionWindshieldWiperStreaking" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "wiperInspectionFollowUp" }
     ]
   },
@@ -599,7 +599,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of wiper issues, such as cracks or tears in the rubber blades, or dirt and grime on the windshield?",
     options: [
       { label: "Yes", next: "solutionWindshieldWiperStreaking" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -608,7 +608,7 @@ export const conversationFlow = {
     message: "Are unusual warning lights (e.g., ABS, airbag) illuminated on your dashboard? These symptoms often indicate sensor malfunctions or system errors.",
     options: [
       { label: "Yes", next: "solutionDashboardWarningLights" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "dashboardWarningLightsInspectionFollowUp" }
     ]
   },
@@ -622,7 +622,7 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of issues, such as unusual vehicle behavior (e.g., braking problems, airbag deployment warnings)?",
     options: [
       { label: "Yes", next: "solutionDashboardWarningLights" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
 
@@ -631,7 +631,7 @@ export const conversationFlow = {
     message: "Is there blue, white, or black smoke coming from your exhaust? These symptoms often indicate oil burning, a coolant leak, or a rich fuel mixture.",
     options: [
       { label: "Yes", next: "solutionExcessiveEngineSmoke" },
-      { label: "No", next: "start" },
+      { label: "No", next: "end" },
       { label: "Not Sure", next: "engineSmokeInspectionFollowUp" }
     ]
   },
@@ -645,7 +645,14 @@ export const conversationFlow = {
     message: "Do you notice any visible signs of engine issues, such as oil leaks, coolant loss, or poor fuel efficiency?",
     options: [
       { label: "Yes", next: "solutionExcessiveEngineSmoke" },
-      { label: "No", next: "start" }
+      { label: "No", next: "end" }
     ]
   },
+
+  // End of Conversation
+  end: {
+    message: "No more options available. If you have any other questions, please contact a professional mechanic for assistance.",
+    options: []
+  },
+  
 };
