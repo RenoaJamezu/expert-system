@@ -324,6 +324,136 @@ export const carRepairDataset = [
       "Recheck the pressure and adjust as needed."
     ],
     toolsRequired: "Tire pressure gauge, air pump"
+  },
+  // Steering Wheel Vibration
+  {
+    id: 23,
+    symptoms: "Steering wheel vibrates at high speeds",
+    problem: "Imbalanced or misaligned wheels",
+    solution: "Balance or align wheels",
+    detailedSteps: [
+      "Inspect the tires for uneven wear or damage.",
+      "Use a tire balancing machine to check for imbalances and add weights as needed.",
+      "Perform a wheel alignment to ensure proper angles (toe, camber, caster).",
+      "Test drive the car to confirm smooth steering."
+    ],
+    toolsRequired: "Tire balancing machine, alignment tools"
+  },
+  // Power Steering Failure
+  {
+    id: 24,
+    symptoms: "Difficulty turning the steering wheel, whining noise when turning",
+    problem: "Low power steering fluid or faulty pump",
+    solution: "Refill fluid or replace power steering pump",
+    detailedSteps: [
+      "Check the power steering fluid reservoir and refill if low.",
+      "Inspect for leaks in the power steering system (hoses, seals).",
+      "If the pump is faulty, disconnect the hoses and electrical connections, then replace it with a new one.",
+      "Test the steering system for smooth operation."
+    ],
+    toolsRequired: "Power steering fluid, wrench, replacement pump (if needed)"
+  },
+  // Headlight Flickering
+  {
+    id: 25,
+    symptoms: "Headlights flicker or dim intermittently",
+    problem: "Loose wiring or failing alternator",
+    solution: "Inspect wiring or test alternator",
+    detailedSteps: [
+      "Check the wiring harness connected to the headlights for loose or corroded connections.",
+      "Test the alternator output using a multimeter (should be around 13.5–14.5 volts).",
+      "If the alternator is faulty, replace it following the same steps as for alternator failure.",
+      "Test the headlights to ensure consistent brightness."
+    ],
+    toolsRequired: "Multimeter, wire brush, replacement alternator (if needed)"
+  },
+  // Sticking Accelerator Pedal
+  {
+    id: 26,
+    symptoms: "Accelerator pedal feels stiff or sticks",
+    problem: "Dirty throttle body or worn accelerator cable",
+    solution: "Clean throttle body or replace accelerator cable",
+    detailedSteps: [
+      "Inspect the throttle body for dirt or carbon buildup.",
+      "Clean the throttle body using a throttle cleaner spray and a soft brush.",
+      "If the accelerator cable is worn or frayed, replace it with a new one.",
+      "Test the pedal for smooth operation."
+    ],
+    toolsRequired: "Throttle cleaner, wrench, replacement accelerator cable (if needed)"
+  },
+  // Rough Idle
+  {
+    id: 27,
+    symptoms: "Engine shakes or vibrates at idle",
+    problem: "Vacuum leak or dirty fuel injectors",
+    solution: "Repair vacuum leak or clean fuel injectors",
+    detailedSteps: [
+      "Inspect the vacuum lines for cracks or disconnections and repair as needed.",
+      "Use a fuel injector cleaner additive to remove deposits from the injectors.",
+      "If the issue persists, professionally clean the fuel injectors using specialized equipment.",
+      "Test the engine for smooth idling."
+    ],
+    toolsRequired: "Fuel injector cleaner, vacuum line repair kit"
+  },
+  // Door Lock Malfunction
+  {
+    id: 28,
+    symptoms: "Door lock does not work properly (manual or electric)",
+    problem: "Faulty actuator or mechanical obstruction",
+    solution: "Replace door lock actuator or lubricate mechanism",
+    detailedSteps: [
+      "Remove the door panel to access the lock mechanism.",
+      "Inspect the actuator for damage or wear and replace it if necessary.",
+      "Lubricate the lock mechanism with silicone spray or grease.",
+      "Reassemble the door and test the lock functionality."
+    ],
+    toolsRequired: "Screwdriver, silicone spray, replacement actuator (if needed)"
+  },
+  // Windshield Wiper Streaking
+  {
+    id: 29,
+    symptoms: "Windshield wipers leave streaks or smear water",
+    problem: "Worn wiper blades or dirty windshield",
+    solution: "Replace wiper blades or clean windshield",
+    detailedSteps: [
+      "Inspect the wiper blades for cracks, tears, or stiffness and replace them if worn.",
+      "Clean the windshield thoroughly using glass cleaner and a microfiber cloth.",
+      "Apply a water repellent treatment to the windshield for improved performance.",
+      "Test the wipers to ensure clear visibility."
+    ],
+    toolsRequired: "Replacement wiper blades, glass cleaner, microfiber cloth"
+  },
+  // Unusual Dashboard Warning Lights
+  {
+    id: 30,
+    symptoms: "Dashboard warning lights (ABS, airbag, etc.) illuminated",
+    problem: "Sensor malfunction or system error",
+    solution: "Diagnose and repair underlying issue",
+    detailedSteps: [
+      "Use an OBD-II scanner to retrieve diagnostic trouble codes (DTCs) from the car’s computer.",
+      "Research the meaning of the DTCs to identify potential causes (e.g., ABS sensor, airbag module).",
+      "Address the specific issue based on the code. For example:",
+      "   - Replace faulty sensors or components.",
+      "   - Reset the system after repairs.",
+      "Test drive the car to ensure the warning lights do not return."
+    ],
+    toolsRequired: "OBD-II scanner, replacement parts (as needed)"
+  },
+  // Excessive Engine Smoke
+  {
+    id: 31,
+    symptoms: "Blue, white, or black smoke from exhaust",
+    problem: "Oil burning, coolant leak, or rich fuel mixture",
+    solution: "Repair engine components or adjust fuel system",
+    detailedSteps: [
+      "Identify the color of the smoke to diagnose the issue:",
+      "   - Blue smoke: Indicates oil burning; inspect valve seals or piston rings.",
+      "   - White smoke: Indicates coolant leak; inspect head gasket or intake manifold.",
+      "   - Black smoke: Indicates rich fuel mixture; inspect fuel injectors or oxygen sensors.",
+      "Repair or replace the faulty components based on the diagnosis.",
+      "Test drive the car to ensure no further smoke."
+    ],
+    toolsRequired: "Compression tester, wrench, replacement parts"
   }
 ];
 
