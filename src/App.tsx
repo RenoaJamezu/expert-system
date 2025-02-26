@@ -60,9 +60,14 @@ const App: React.FC = () => {
     }
   };
 
-  // Function to restart the conversation
-  const handleRestartConversation = () => {
-    setMessages([{ text: conversationFlow.start.message, sender: 'bot' }]);
+  // Function to start a new conversation
+  const handleStartNewConversation = () => {
+    // Append the bot's initial message to the existing messages
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: conversationFlow.start.message, sender: 'bot' }
+    ]);
+    // Reset the current step to the start
     setCurrentStep('start');
   };
 
@@ -115,10 +120,10 @@ const App: React.FC = () => {
           </div>
         )}
 
-        {/* Restart Button (Visible when conversation ends) */}
+        {/* Start New Conversation Button (Visible when conversation ends) */}
         {hasConversationEnded && (
           <button
-            onClick={handleRestartConversation}
+            onClick={handleStartNewConversation}
             className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 whitespace-nowrap w-full mb-2"
           >
             <FaSync className="inline-block mr-2" />
