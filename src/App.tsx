@@ -2,16 +2,33 @@ import React, { useState } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 import { conversationFlow } from '../constants/conversationFlow';
 
+// Define the type for a conversation step
+type ConversationStep = {
+  message: string;
+  options?: { label: string; next: string }[];
+};
+
+// Define the type for the conversation flow object
+type ConversationFlow = {
+  [key: string]: ConversationStep;
+};
+
+// Define the type for a message
+type Message = {
+  text: string;
+  sender: 'user' | 'bot';
+};
+
 const App: React.FC = () => {
   // Initialize messages with the bot's first message
-  const [messages, setMessages] = useState<{ text: string; sender: 'user' | 'bot' }[]>([
+  const [messages, setMessages] = useState<Message[]>([
     { text: conversationFlow.start.message, sender: 'bot' }
   ]);
   const [currentStep, setCurrentStep] = useState<string>('start');
 
   // Function to handle sending a message
   const handleSendMessage = (option?: string) => {
-    const currentMessage = conversationFlow[currentStep];
+    const currentMessage = (conversationFlow as ConversationFlow)[currentStep];
     if (!currentMessage) return;
 
     // Add user's choice to the chat
@@ -30,7 +47,7 @@ const App: React.FC = () => {
         setCurrentStep(selectedOption.next);
 
         // Add bot's response to the chat
-        const nextMessage = conversationFlow[selectedOption.next]?.message;
+        const nextMessage = (conversationFlow as ConversationFlow)[selectedOption.next]?.message;
         if (nextMessage) {
           setTimeout(() => {
             setMessages((prevMessages) => [
@@ -42,6 +59,9 @@ const App: React.FC = () => {
       }
     }
   };
+
+  // Get the current step's options
+  const currentOptions = (conversationFlow as ConversationFlow)[currentStep]?.options || [];
 
   // Render the chat interface
   return (
@@ -58,7 +78,7 @@ const App: React.FC = () => {
               className={`rounded-lg p-3 max-w-xs ${message.sender === 'user'
                   ? 'bg-blue-500 text-white rounded-br-none'
                   : 'bg-gray-300 text-black rounded-bl-none'
-                } whitespace-pre-wrap`} // Add this class
+                } whitespace-pre-wrap`}
             >
               {message.text}
             </div>
@@ -68,7 +88,7 @@ const App: React.FC = () => {
 
       {/* Quick Reply Buttons (Vertical Layout) */}
       <div className="flex flex-col gap-2 mb-4 h-48 overflow-y-auto"> {/* Set a fixed height and enable scrolling */}
-        {conversationFlow[currentStep]?.options.map((option, index) => (
+        {currentOptions.map((option, index) => (
           <button
             key={index}
             onClick={() => handleSendMessage(option.label)}
