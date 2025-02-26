@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaSync } from 'react-icons/fa';
 import { conversationFlow } from '../constants/conversationFlow';
 
 // Define the type for a conversation step
@@ -60,11 +60,20 @@ const App: React.FC = () => {
     }
   };
 
+  // Function to restart the conversation
+  const handleRestartConversation = () => {
+    setMessages([{ text: conversationFlow.start.message, sender: 'bot' }]);
+    setCurrentStep('start');
+  };
+
   // Get the current step's options
   const currentOptions = (conversationFlow as ConversationFlow)[currentStep]?.options || [];
 
   // Determine if there are buttons to display
   const hasButtons = currentOptions.length > 0;
+
+  // Determine if the conversation has ended (no more options)
+  const hasConversationEnded = !hasButtons;
 
   // Render the chat interface
   return (
@@ -104,6 +113,17 @@ const App: React.FC = () => {
               </button>
             ))}
           </div>
+        )}
+
+        {/* Restart Button (Visible when conversation ends) */}
+        {hasConversationEnded && (
+          <button
+            onClick={handleRestartConversation}
+            className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 whitespace-nowrap w-full mb-2"
+          >
+            <FaSync className="inline-block mr-2" />
+            Start New Conversation
+          </button>
         )}
 
         {/* Input Box (Optional) */}
