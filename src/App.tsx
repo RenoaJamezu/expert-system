@@ -63,6 +63,9 @@ const App: React.FC = () => {
   // Get the current step's options
   const currentOptions = (conversationFlow as ConversationFlow)[currentStep]?.options || [];
 
+  // Determine if there are buttons to display
+  const hasButtons = currentOptions.length > 0;
+
   // Render the chat interface
   return (
     <div className="flex flex-col h-screen bg-gray-100 p-4 max-w-md mx-auto shadow-lg rounded-lg overflow-hidden">
@@ -86,33 +89,38 @@ const App: React.FC = () => {
         ))}
       </div>
 
-      {/* Quick Reply Buttons (Vertical Layout) */}
-      <div className="flex flex-col gap-2 mb-4 h-48 overflow-y-auto"> {/* Set a fixed height and enable scrolling */}
-        {currentOptions.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => handleSendMessage(option.label)}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 whitespace-nowrap"
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
+      {/* Bottom Section (Buttons and Input Box) */}
+      <div className="flex flex-col gap-2">
+        {/* Quick Reply Buttons (Vertical Layout) */}
+        {hasButtons && (
+          <div className="overflow-y-auto max-h-48"> {/* Set a max height for buttons */}
+            {currentOptions.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleSendMessage(option.label)}
+                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 whitespace-nowrap w-full mb-2"
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        )}
 
-      {/* Input Box (Optional) */}
-      <div className="flex items-center bg-white p-2 rounded-lg shadow-sm">
-        <input
-          type="text"
-          placeholder="Type a message..."
-          className="flex-1 p-2 border-none rounded-lg focus:outline-none"
-          disabled
-        />
-        <button
-          className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 ml-2"
-          disabled
-        >
-          <FaPaperPlane />
-        </button>
+        {/* Input Box (Optional) */}
+        <div className="flex items-center bg-white p-2 rounded-lg shadow-sm">
+          <input
+            type="text"
+            placeholder="Type a message..."
+            className="flex-1 p-2 border-none rounded-lg focus:outline-none"
+            disabled
+          />
+          <button
+            className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 ml-2"
+            disabled
+          >
+            <FaPaperPlane />
+          </button>
+        </div>
       </div>
     </div>
   );
