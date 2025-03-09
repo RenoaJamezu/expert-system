@@ -14,19 +14,17 @@ ${entry.detailedSteps.map((step, index) => `            ${index + 1}. ${step}`).
 }
 
 // Helper function to generate backward chaining steps for a solution
-const generateBackwardChainingSteps = (problem: string) => {
-  const entry = carRepairDataset.find((item) => item.problem === problem);
+const generateBackwardChainingSteps = (symptoms: string) => {
+  const entry = carRepairDataset.find((item) => item.symptoms === symptoms);
   if (!entry) {
     return {};
   }
 
-  const solutionSteps = entry.detailedSteps; // Use the detailedSteps directly
-  // Remove the .reverse() to keep steps in the original order
-  // const reversedSteps = solutionSteps.reverse(); // <-- Remove this line
+  const solutionSteps = entry.detailedSteps;
 
   const stepFlow = solutionSteps.reduce((acc: any, step: string, index: number) => {
-    const stepId = `${problem}_step_${index + 1}`;
-    const nextStepId = index < solutionSteps.length - 1 ? `${problem}_step_${index + 2}` : `${problem}_final`;
+    const stepId = `${symptoms}_step_${index + 1}`;
+    const nextStepId = index < solutionSteps.length - 1 ? `${symptoms}_step_${index + 2}` : `${symptoms}_final`;
 
     // Step confirmation
     acc[stepId] = {
@@ -38,17 +36,17 @@ const generateBackwardChainingSteps = (problem: string) => {
         },
         {
           label: "No, I need help with this step",
-          next: `${problem}_step_${index + 1}_help`,
+          next: `${symptoms}_step_${index + 1}_help`,
         },
         {
           label: "Go Back",
-          next: index === 0 ? `${problem}_inspection` : `${problem}_step_${index}`,
+          next: index === 0 ? `${symptoms}_inspection` : `${symptoms}_step_${index}`,
         },
       ],
     };
 
     // Help step for each step
-    acc[`${problem}_step_${index + 1}_help`] = {
+    acc[`${symptoms}_step_${index + 1}_help`] = {
       message: `Here’s how to complete this step: ${step}`,
       options: [
         {
@@ -69,22 +67,22 @@ const generateBackwardChainingSteps = (problem: string) => {
 };
 
 // Helper function to generate the goal, inspection, and follow-up steps for each issue
-const generateBackwardChainingFlow = (problem: string, followUp: string) => {
-  const entry = carRepairDataset.find((item) => item.problem === problem);
+const generateBackwardChainingFlow = (symptoms: string, followUp: string) => {
+  const entry = carRepairDataset.find((item) => item.symptoms === symptoms);
   if (!entry) {
     return {};
   }
 
-  const stepFlow = generateBackwardChainingSteps(problem);
+  const stepFlow = generateBackwardChainingSteps(symptoms);
 
   return {
     // Tools step: Display tools required before starting
-    [`${problem}_tools`]: {
+    [`${symptoms}_tools`]: {
       message: `Before starting, make sure you have the following tools: ${entry.toolsRequired}`,
       options: [
         {
           label: "I have the tools, let's proceed",
-          next: `${problem}_step_1`,
+          next: `${symptoms}_step_1`,
         },
         {
           label: "Go Back",
@@ -94,12 +92,12 @@ const generateBackwardChainingFlow = (problem: string, followUp: string) => {
     },
 
     // Goal step: Start with the solution
-    [`${problem}_goal`]: {
-      message: `Your goal is to fix: ${problem}. Let's proceed step by step.`,
+    [`${symptoms}_goal`]: {
+      message: `Your goal is to fix: ${entry.problem}. Let's proceed step by step.`,
       options: [
         {
           label: "Proceed",
-          next: `${problem}_tools`, // Redirect to tools step first
+          next: `${symptoms}_tools`, // Redirect to tools step first
         },
         {
           label: "Go Back",
@@ -112,8 +110,8 @@ const generateBackwardChainingFlow = (problem: string, followUp: string) => {
     ...stepFlow,
 
     // Final step: Confirm the issue is resolved
-    [`${problem}_final`]: {
-      message: `Have you successfully fixed the issue: ${problem}?`,
+    [`${symptoms}_final`]: {
+      message: `Have you successfully fixed the issue: ${entry.problem}?`,
       options: [
         {
           label: "Yes, the issue is resolved",
@@ -121,7 +119,7 @@ const generateBackwardChainingFlow = (problem: string, followUp: string) => {
         },
         {
           label: "No, I still need help",
-          next: `${problem}_goal`,
+          next: `${symptoms}_goal`,
         },
       ],
     },
