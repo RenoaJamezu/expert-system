@@ -35,10 +35,6 @@ const generateBackwardChainingSteps = (symptoms: string) => {
           next: nextStepId,
         },
         {
-          label: "No, I need help with this step",
-          next: `${symptoms}_step_${index + 1}_help`,
-        },
-        {
           label: "Go Back",
           next: index === 0 ? `${symptoms}_inspection` : `${symptoms}_step_${index}`,
         },
@@ -114,8 +110,7 @@ const generateBackwardChainingFlow = (symptoms: string, followUp: string) => {
       message: `Have you successfully fixed the issue: ${entry.problem}?`,
       options: [
         {
-          label: "Yes, the issue is resolved",
-          next: "start",
+          label: "Yes, the issue is resolved"
         },
         {
           label: "No, I still need help",
